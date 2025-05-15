@@ -10,21 +10,11 @@ public class SpigotGen {
     //   ceil(((2**31-1) - 1) * 3 / 10)
     private static final int MAX_DIGITS_REQUESTED = 644245094;
 
-
-    public static void printHelp() {
-        System.err.println("\n  PiSpigot [number of digits requested]\n");
-    }
-
     // Allocate digits[]
     public static boolean init(int digReq) {
         digits_requested = digReq;
         int array_size_needed = digits_requested * 10 / 3 + 1;
         digits = new int[array_size_needed];
-        if (digits == null) {
-            System.err.printf("Failed to allocate " + (array_size_needed*4)
-                    + " bytes.");
-            return false;
-        }
 
         // fill each digit with a 2
         for (int i=0; i < digits.length; i++)
@@ -89,7 +79,7 @@ public class SpigotGen {
     }
 
 
-    // add one to each digit, rolling over from from 9 to 0
+    // add one to each digit, rolling over from 9 to 0
     public static void overflowDigits() {
         for (int i=0; i < predigits.length(); i++) {
             char digit = predigits.charAt(i);

@@ -7,6 +7,6 @@ import com.felipe.mathpi.gen.SpigotGen;
 public class Main {
 
     public static void main(String[] args) {
-        SpigotGen.run(100);
+        SpigotGen.run(1000);
     }
 }
